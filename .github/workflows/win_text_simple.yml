@@ -23,6 +23,8 @@ jobs:
         with:
           msbuild-architecture: x64
       - name: msvc-release-x64
+        shell: cmd
+        working-directory: ./
         run: |
           MSBuild -m win_text_simple.sln -p:useenv=false -p:Configuration=Release -p:Platform=x64 /t:Rebuild
           dir %cd%\x64\Release\win_text_simple.exe
