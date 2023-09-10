@@ -8,6 +8,8 @@ win_text_simple
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
     <a href="https://github.com/ckormanyos/win_text_simple">
         <img src="https://img.shields.io/github/languages/code-size/ckormanyos/win_text_simple" alt="GitHub code size in bytes" /></a>
+    <a href="https://godbolt.org/z/nWcc6KbKx" alt="godbolt">
+        <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
 win_text_simple makes a simple Win32-API window with dynamic
@@ -47,15 +49,17 @@ Standard Windows(R) message pump technology is used. An additional `WM_TIMER`
 message and handler have been added for handling the interaction
 with `std::chrono`.
 
-A C++ `std::thread` object is used for synchronization
+The window features its own specialized icon which has been created
+with the standard icon editor and loaded at application start.
+
+An object of type C++ `std::thread` object is used for synchronization
 and properly shutting down and de-registering the window.
 
 ## Continuous Integration
 
 Continuous integration runs in GitHub Actions using the `windows-latest`
-image. The Ci jobs build the _x64_, _Release_ version
-of the application and check for the existence of the executable.
-VS-versions 15, 16, 17 and latest are used.
+image. The CI job builds the _x64_, _Release_ version
+of the application and checks for the existence of the executable.
 
 ## References
 
