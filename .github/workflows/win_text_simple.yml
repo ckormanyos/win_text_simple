@@ -12,20 +12,16 @@ on:
       - '**'
   pull_request:
 jobs:
-  msvc-release-x64-msbuild:
+  msvc-release-x64:
     runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        vstoolset: [ 14.1, 14.2, 14.3 ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
-      - uses: actions/checkout@v3
-      - uses: ilammy/msvc-dev-cmd@v1
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.3.1
         with:
-          toolset: ${{ matrix.vstoolset }}
+          msbuild-architecture: x64
       - name: msvc-release-x64
         shell: cmd
         working-directory: ./
