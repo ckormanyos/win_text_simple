@@ -43,9 +43,19 @@ of the running tick is used.
 The application is written in header-only, modern C++ and is compatible
 with C++14, 17, 20, 23 and beyond.
 
+Standard Windows(R) message pump technology is used. An additional `WM_TIMER`
+message and handler have been added for handling the interaction
+with `std::chrono`.
+
+A C++ `std::thread` object is used for synchronization
+and properly shutting down and de-registering the window.
+
 ## Continuous Integration
 
-TBD
+Continuous integration runs in GitHub Actions using the `windows-latest`
+image. The Ci jobs build the _x64_, _Release_ version
+of the application and check for the existence of the executable.
+VS-versions 15, 16, 17 and latest are used.
 
 ## References
 
