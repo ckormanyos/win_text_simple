@@ -45,20 +45,23 @@ of the running tick is used.
 The application is written in header-only, modern C++ and is compatible
 with C++14, 17, 20, 23 and beyond.
 
-Standard Windows(R) message pump technology is used. An additional `WM_TIMER`
-message and handler have been added for handling the interaction
-with `std::chrono`.
+The standard Windows(R) message pump technology is used.
+An additional `WM_TIMER` message and handler have been added
+for handling the interaction with `std::chrono`.
 
 The window features its own specialized icon which has been created
 with the standard icon editor and loaded at application start.
 
-An object of type C++ `std::thread` object is used for synchronization
-and properly shutting down and de-registering the window.
+![](./images/icon.jpg)
+
+An object of type `std::thread` (in modern C++) is used
+for synchronization and properly shutting down and de-registering
+the window at application close.
 
 ## Continuous Integration
 
 Continuous integration runs in GitHub Actions using the `windows-latest`
-image. The CI job builds the _x64_, _Release_ version
+image. The CI job builds the _x64-Release_ version
 of the application and checks for the existence of the executable.
 
 ## References
