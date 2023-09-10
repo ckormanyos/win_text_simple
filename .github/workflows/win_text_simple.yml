@@ -12,67 +12,20 @@ on:
       - '**'
   pull_request:
 jobs:
-  msvc-release-x64-msbuild-latest:
+  msvc-release-x64-msbuild:
     runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        vstoolset: [ 14.1, 14.2, 14.3 ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.3
-        with:
-          msbuild-architecture: x64
-      - name: msvc-release-x64
-        shell: cmd
-        working-directory: ./
-        run: |
-          MSBuild -m win_text_simple.sln -p:useenv=false -p:Configuration=Release -p:Platform=x64 /t:Rebuild
-          dir %cd%\x64\Release\win_text_simple.exe
-  msvc-release-x64-msbuild-15:
-    runs-on: windows-latest
-    steps:
       - uses: actions/checkout@v3
+      - uses: ilammy/msvc-dev-cmd@v1
         with:
-          fetch-depth: '0'
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.3
-        with:
-          msbuild-architecture: x64
-          vs-version: '[15.2,15.3)'
-      - name: msvc-release-x64
-        shell: cmd
-        working-directory: ./
-        run: |
-          MSBuild -m win_text_simple.sln -p:useenv=false -p:Configuration=Release -p:Platform=x64 /t:Rebuild
-          dir %cd%\x64\Release\win_text_simple.exe
-  msvc-release-x64-msbuild-16:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: '0'
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.3
-        with:
-          msbuild-architecture: x64
-          vs-version: '[16.4,16.5)'
-      - name: msvc-release-x64
-        shell: cmd
-        working-directory: ./
-        run: |
-          MSBuild -m win_text_simple.sln -p:useenv=false -p:Configuration=Release -p:Platform=x64 /t:Rebuild
-          dir %cd%\x64\Release\win_text_simple.exe
-  msvc-release-x64-msbuild-17:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: '0'
-      - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.3
-        with:
-          msbuild-architecture: x64
-          vs-version: '[17.3,17.4)'
+          toolset: ${{ matrix.vstoolset }}
       - name: msvc-release-x64
         shell: cmd
         working-directory: ./
