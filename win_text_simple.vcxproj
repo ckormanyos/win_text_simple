@@ -23,6 +23,10 @@
   <ItemGroup>
     <Image Include="circle_cyan.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\win_text_simple.yml" />
+    <None Include="README.md" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{243AEADC-DC49-4B36-B5C7-88C5B0986342}</ProjectGuid>

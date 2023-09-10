@@ -5,6 +5,15 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="_doc">
+      <UniqueIdentifier>{28ed1fbf-ea4a-4ff6-8388-92b0ebecb949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include=".github">
+      <UniqueIdentifier>{761ac075-b26f-4cdf-aeb2-ac7c886fc64a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include=".github\workflows">
+      <UniqueIdentifier>{071b544c-f1bd-44ca-8e52-aa9a0450abfb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win_text_simple.h">
@@ -28,5 +37,13 @@
     <ResourceCompile Include="win_text_simple.rc">
       <Filter>Source Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>_doc</Filter>
+    </None>
+    <None Include=".github\workflows\win_text_simple.yml">
+      <Filter>.github\workflows</Filter>
+    </None>
   </ItemGroup>
 </Project>
